@@ -9,6 +9,30 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <div class="top-bar">
+    <div class="top-bar-title small-12 medium-5 columns">
+    </div>
+    <div class="top-bar-left">
+    </div>
+    <div class="top-bar-right">
+      <div class="admin-only">
+
+      </div>
+      <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %> /
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %> /
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row columns flash">
+   <% flash.each do |key, value| %>
+     <div class="alert alert-<%= key %>"><%= value %></div>
+   <% end %>
+  </div>
+
 <%= yield %>
 
 </body>
