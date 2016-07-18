@@ -277,6 +277,5 @@ Style/EmptyLinesAroundBlockBody:
 Style/UnneededPercentQ:
   Enabled: false
 
-
 Metrics/AbcSize:
   Enabled: false
