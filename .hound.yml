@@ -4,7 +4,7 @@ AllCops:
   #DisplayCopNames: true
 
 ruby:
-enabled: false
+ config_file: .ruby-style.yml
 
 AccessorMethodName:
   Enabled: false
