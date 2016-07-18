@@ -3,6 +3,9 @@ AllCops:
     - db/schema.rb
   #DisplayCopNames: true
 
+ruby:
+enabled: false
+
 AccessorMethodName:
   Enabled: false
 
@@ -273,6 +276,7 @@ Style/EmptyLinesAroundBlockBody:
 
 Style/UnneededPercentQ:
   Enabled: false
+
 
 Metrics/AbcSize:
   Enabled: false
