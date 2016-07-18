@@ -1,5 +1,4 @@
 class PollutionEventsController < ApplicationController
-
   def index
     @pollution_events = PollutionEvent.all
   end
