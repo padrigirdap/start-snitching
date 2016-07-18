@@ -34,6 +34,5 @@ feature "user signs up" do
 
     expect(page).to have_content("Password confirmation doesn't match Password")
     expect(page).to_not have_content("Sign Out")
-
   end
 end
