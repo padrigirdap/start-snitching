@@ -1,0 +1,41 @@
+<div class="row columns">
+  <div class="row" data-equalizer data-equalize-on="medium">
+    <div class="small-12 medium-8 columns" data-equalizer-watch>
+      <h1><%= @pollution_event.name %></h1>
+    </div>
+
+    <div class="small-12 medium-2 columns text-right edit-event" data-equalizer-watch>
+      <div class="edit-delete-button" data-equalizer-watch>
+        <% if user_signed_in? && (current_user.id == @pollution_event.user_id) %>
+          <%= link_to "Edit Event", edit_pollution_event_path(@pollution_event), { class: "button edit-pollutio_event-button" } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout main-info">
+    <div class="event-description">
+      <span class="bold">Description:</span> <%= @pollution_event.description %>
+    </div>
+
+    <div class="row" data-equalizer data-equalize-on="medium">
+      <div class="small-12 medium-4 columns">
+        <div class="callout secondary" data-equalizer-watch>
+          <h4>Address</h4>
+          <p><%= @pollution_event.address %>
+          <%= @pollution_event.city %>, <%= @pollution_event.state %> <%= @pollution_event.zip %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-2 columns">
+      <h3>Comments</h3>
+    </div>
+
+    <div class="small-12 medium-2 columns text-right">
+      <%= link_to "Add a Comment", new_pollution_event_comment_path(@pollution_event), { class: "button" } %>
+    </div>
+  </div>
+</div>
