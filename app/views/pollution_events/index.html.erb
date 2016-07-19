@@ -1,0 +1,7 @@
+<div class="list">
+  <%= render 'pollution_events/add_event' %>
+  <div id="app"></div>
+  <% @pollution_events.each do |event| %>
+  <%= event.name %>
+  <% end %>
+</div>

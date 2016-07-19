@@ -1,0 +1,42 @@
+<%= form_for(@pollution_event) do |f| %>
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <%= f.label :name, 'Name' %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <%= f.label :address, 'Address' %>
+      <%= f.text_field :address %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-4 medium-2 columns">
+      <%= f.label :city, 'City' %>
+      <%= f.text_field :city %>
+    </div>
+    <div class="small-4 medium-2 columns">
+      <%= f.label :state, 'State' %>
+      <%= f.text_field :state %>
+    </div>
+    <div class="small-4 medium-2 columns end">
+      <%= f.label :zip, 'Zip' %>
+      <%= f.text_field :zip %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <%= f.label :description, 'Description' %>
+      <%= f.text_area :description %>
+    </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.submit "Create Event", class: "button" %>
+    </div>
+  </div>
+<%end%>
