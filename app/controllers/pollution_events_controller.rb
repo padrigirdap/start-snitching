@@ -17,7 +17,7 @@ class PollutionEventsController < ApplicationController
       flash[:notice] = "Event created successfully"
       redirect_to pollution_event_path(@pollution_event)
     else
-      flash.now[:error] = @pollution_event.errors.full_messages.join(', ')
+      flash.now[:error] = @pollution_event.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -36,7 +36,7 @@ class PollutionEventsController < ApplicationController
       flash[:notice] = "Event updated!"
       redirect_to pollution_event_path(@pollution_event)
     else
-      flash.now[:error] = @pollution_event.errors.full_messages.join(', ')
+      flash.now[:error] = @pollution_event.errors.full_messages.join(", ")
       render :edit
     end
   end
