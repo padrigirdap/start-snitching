@@ -2,6 +2,8 @@
   <%= render 'pollution_events/add_event' %>
   <div id="app"></div>
   <% @pollution_events.each do |event| %>
-  <%= event.name %>
+  <%= link_to "#{event.name}", pollution_event_path(event.id) %>
+  <br>
+  <br>
   <% end %>
 </div>
