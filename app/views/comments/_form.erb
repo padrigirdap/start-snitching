@@ -1,0 +1,13 @@
+<%= form_for [@pollution_event, @comment] do |f|%>
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <%= f.label :body, "Comment" %>
+      <%= f.text_area :body %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.submit "Submit Comment", class: "button" %>
+    </div>
+  </div>
+<% end %>
