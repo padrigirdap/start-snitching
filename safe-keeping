@@ -1,0 +1,32 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <h3>Start Snitching</h3>
+  </div>
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li>
+        <a href="#">Menu</a>
+        <ul class="menu vertical">
+          <li>
+            <a href="#">
+              <%= link_to "Add Pollution Event", new_pollution_event_path, { class: "button" } %>
+            </a>
+          </li>
+          <li><a href="#">Submit</a></li>
+        </ul>
+      </li>
+      <% if user_signed_in? %>
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>
+      <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+      <% else %>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="row columns flash">
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
