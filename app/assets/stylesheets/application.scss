@@ -1,2 +1,44 @@
 // @import "*";
+@import "foundation_and_overrides";
+// TOP BAR
+.top-bar {
+  background-color: #222;
+  height: 80px;
+  padding: 0;
+  opacity: .9;
+}
 
+.site-logo {
+  color: white;
+  line-height: 80px;
+}
+
+.top-bar-right ul {
+  background-color: #222;
+  line-height: 80px;
+}
+
+.menu > li > a {
+  color: white;
+  display: inline-block;
+}
+
+// HERO
+.hero {
+  background-color: #999;
+  padding: 80px 0px;
+  height: 400px;
+}
+
+// MAIN
+.main {
+  padding: 80px 0px;
+}
+
+#map {
+  height: 400px;
+  width: 400px;
+}
+
+
+// FOOTER

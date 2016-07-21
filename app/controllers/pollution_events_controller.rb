@@ -4,15 +4,18 @@ class PollutionEventsController < ApplicationController
   def index
     @pollution_events = PollutionEvent.all
     @pollution_event = PollutionEvent.new
+    @user = current_user
   end
 
   def new
     @pollution_event = PollutionEvent.new
+    @user = current_user
   end
 
   def create
     @pollution_event = PollutionEvent.new(pollution_params)
     @pollution_event.user = current_user
+    @user = current_user
     if @pollution_event.save
       flash[:notice] = "Event created successfully"
       redirect_to pollution_event_path(@pollution_event)
