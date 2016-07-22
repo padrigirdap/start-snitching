@@ -10,7 +10,7 @@ feature "user edits a review" do
     click_link "Edit Event"
     expect(page).to have_current_path edit_pollution_event_path(pollution_event)
 
-    fill_in "Name", with: "Paddy's big spill"
+    fill_in "Title", with: "Paddy's big spill"
     click_button("Update Event")
 
     expect(page).to have_content("Paddy's big spill")
@@ -35,23 +35,14 @@ feature "user edits a review" do
     sign_in
     visit edit_pollution_event_path(pollution_event)
 
-    fill_in "Name", with: ""
+    fill_in "Title", with: ""
     fill_in "Address", with: ""
-    fill_in "City", with: ""
-    fill_in "State", with: ""
-    fill_in "Zip", with: ""
-
     click_button("Update Event")
 
     expect(page).to have_current_path pollution_event_path(pollution_event)
 
-    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Title can't be blank")
     expect(page).to have_content("Address can't be blank")
-    expect(page).to have_content("City can't be blank")
-    expect(page).to have_content("State can't be blank")
-    expect(page).to have_content("Zip can't be blank")
-    expect(page).to have_content("Zip is the wrong length")
-    expect(page).to have_content("Zip is not a number")
     expect(page).not_to have_content("pollution_event updated!")
   end
 end

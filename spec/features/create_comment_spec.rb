@@ -1,7 +1,7 @@
 require "rails_helper"
 feature "user creates a new review" do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:pollution_event) { FactoryGirl.create(:pollution_event, user_id: user.id, name: "Jim's Spill") }
+  let!(:pollution_event) { FactoryGirl.create(:pollution_event, user_id: user.id, title: "Jim's Spill") }
 
   scenario "user successfully submits a new comment" do
     sign_in

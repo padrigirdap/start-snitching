@@ -1,7 +1,7 @@
 <div class="row columns">
   <div class="row" data-equalizer data-equalize-on="medium">
     <div class="small-12 medium-8 columns" data-equalizer-watch>
-      <h1><%= @pollution_event.name %></h1>
+      <h1><%= @pollution_event.title %></h1>
     </div>
 
     <div class="small-12 medium-2 columns text-right edit-event" data-equalizer-watch>
@@ -22,8 +22,10 @@
       <div class="small-12 medium-4 columns">
         <div class="callout secondary" data-equalizer-watch>
           <h4>Address</h4>
-          <p><%= @pollution_event.address %>
-          <%= @pollution_event.city %>, <%= @pollution_event.state %> <%= @pollution_event.zip %></p>
+          <p>
+            <%= @pollution_event.address %>
+            <%= @pollution_event.url %>
+          </p>
         </div>
       </div>
     </div>

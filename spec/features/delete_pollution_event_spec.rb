@@ -12,7 +12,7 @@ feature "user deletes a pollution_event" do
 
     expect(page).to have_content "Event deleted!"
     expect(page).to have_current_path pollution_events_path
-    expect(page).not_to have_content pollution_event.name
+    expect(page).not_to have_content pollution_event.title
   end
 
   scenario "user unsuccessfully deletes another user's pollution_event" do
