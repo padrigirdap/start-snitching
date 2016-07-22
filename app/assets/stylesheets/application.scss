@@ -1,4 +1,9 @@
-// @import "*";
+
+
+#map {
+  height: 500px;
+  width: 500px;
+}// @import "*";
 @import "foundation_and_overrides";
 // TOP BAR
 .top-bar {
@@ -23,6 +28,11 @@
   display: inline-block;
 }
 
+#map {
+  height: 50%;
+  width: 50%;
+}
+
 // HERO
 .hero {
   background-color: #999;
@@ -34,11 +44,5 @@
 .main {
   padding: 80px 0px;
 }
-
-#map {
-  height: 400px;
-  width: 400px;
-}
-
 
 // FOOTER

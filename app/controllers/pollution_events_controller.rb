@@ -4,18 +4,15 @@ class PollutionEventsController < ApplicationController
   def index
     @pollution_events = PollutionEvent.all
     @pollution_event = PollutionEvent.new
-    @user = current_user
   end
 
   def new
     @pollution_event = PollutionEvent.new
-    @user = current_user
   end
 
   def create
     @pollution_event = PollutionEvent.new(pollution_params)
     @pollution_event.user = current_user
-    @user = current_user
     if @pollution_event.save
       flash[:notice] = "Event created successfully"
       redirect_to pollution_event_path(@pollution_event)
@@ -53,6 +50,6 @@ class PollutionEventsController < ApplicationController
   end
 
   def pollution_params
-    params.require(:pollution_event).permit(:name, :address, :city, :state, :zip, :description, :offender, :likecount)
+    params.require(:pollution_event).permit(:title, :address, :description, :url, :likecount, :event_lng, :event_lat)
   end
 end

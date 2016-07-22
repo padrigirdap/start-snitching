@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
+gem 'gmaps4rails'
 
 group :development, :test do
 
