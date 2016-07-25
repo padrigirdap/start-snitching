@@ -1,6 +1,6 @@
 <div class="top-bar">
   <div class="top-bar-left">
-    <h3 class="site-logo">Start Snitching</h3>
+    <h3 class="site-logo"style="color:white;"><%= link_to "Breakable Toy", root_path %></h3>
   </div>
   <div class="top-bar-right">
     <ul class="dropdown menu" data-dropdown-menu>
@@ -24,7 +24,7 @@
     </ul>
   </div>
 </div>
-<div class="row columns flash">
+<div class="flash">
   <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>

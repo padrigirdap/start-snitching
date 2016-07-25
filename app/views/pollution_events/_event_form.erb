@@ -1,46 +1,23 @@
-<%= form_for(@pollution_event) do |f| %>
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :title, 'Title' %>
-      <%= f.text_field :title %>
-    </div>
+<div class="form-canvas-trigger">
+  <a href='#step-3' id='canvas-form' class='icon paint button quiet float-right'>
+    Add Event
+  </a>
+  <div id='step-3' class='row15 col5 pad2 fill-darken3 pin-left offcanvas-left animate'>
+    <%= form_for(@pollution_event) do |f| %>
+    <a href='#' id="close-button" class='fill-darken0 pad1 icon close'></a>
+    <%= f.label :title, 'Title' %>
+    <%= f.text_field :title %>
+    <%= f.label :address, 'Address' %>
+    <%= f.text_field :address %>
+    <%= f.label :event_lat, 'Latitude' %>
+    <%= f.text_field :event_lat %>
+    <%= f.label :event_lng, 'Longitude' %>
+    <%= f.text_field :event_lng %>
+    <%= f.label :description, 'Description' %>
+    <%= f.text_area :description %>
+    <%= f.label :url, 'Url' %>
+    <%= f.text_area :url %>
+    <%= f.submit "Create Event", class: "button" %>
+    <%end%>
   </div>
-
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :address, 'Address' %>
-      <%= f.text_field :address %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :event_lat, 'Latitude' %>
-      <%= f.text_field :event_lat %>
-    </div>
-  </div><div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :event_lng, 'Longitude' %>
-      <%= f.text_field :event_lng %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :description, 'Description' %>
-      <%= f.text_area :description %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :url, 'Url' %>
-      <%= f.text_area :url %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 columns">
-      <%= f.submit "Create Event", class: "button" %>
-    </div>
-  </div>
-<%end%>
+</div>

@@ -1,16 +1,15 @@
-
-
-#map {
-  height: 500px;
-  width: 500px;
-}// @import "*";
+// @import "*";
 @import "foundation_and_overrides";
 // TOP BAR
+
+
 .top-bar {
-  background-color: #222;
+  position: relative;
+  background-color: #0A0D0F;
   height: 80px;
   padding: 0;
-  opacity: .9;
+  opacity: .8;
+  z-index: 3;
 }
 
 .site-logo {
@@ -19,7 +18,7 @@
 }
 
 .top-bar-right ul {
-  background-color: #222;
+  background-color: #0A0D0F;
   line-height: 80px;
 }
 
@@ -28,21 +27,50 @@
   display: inline-block;
 }
 
+a:link, a:visited, a:hover, a:active {
+  color: #fefefe;
+}
+
+// INDEX
+.flash {
+  z-index: 3;
+  color: white;
+}
+
 #map {
-  height: 50%;
-  width: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width:100%;
+  height: 100%;
+  max-width: none;
+  z-index: 1;
 }
 
-// HERO
-.hero {
-  background-color: #999;
-  padding: 80px 0px;
-  height: 400px;
+.list-canvas-trigger {
+  position: relative;
+  z-index: 2;
+  height: 100%;
 }
 
-// MAIN
-.main {
-  padding: 80px 0px;
+// NEW FORM
+
+#step-3 {
+  top: 30%;
 }
 
-// FOOTER
+.form-canvas-trigger {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+#new-map {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width:100%;
+  height: 100%;
+  max-width: none;
+  z-index: 1;
+}

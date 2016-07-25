@@ -1,18 +1,21 @@
-<% if user_signed_in? %>
-  <%= render 'event_form' %>
-<% end %>
-
-  <div id="map" ></div>
-
-
-<section class="main">
-    <div id="app"></div>
-    <% @pollution_events.each do |event| %>
-    <div class="blue column">
-      <h4><%= link_to "#{event.title}", pollution_event_path(event.id) %><h4>
+<div class='map-holder'>
+  <div class="list-canvas-trigger">
+    <a href='#step-4' id='canvas-list' class='icon paint button quiet float-right'>
+      Recent Events
+    </a>
+    <div id='step-4' class='row15 col3 pad2 fill-darken3 pin-left offcanvas-left animate'>
+      <a href='#' class='fill-darken0 pad1 icon close'></a>
+      <% @pollution_events.each do |event| %>
+      <div class="pad1y pad2x keyline-bottom">
+        <%= link_to "#{event.title}", pollution_event_path(event.id) %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
-</section>
+  </div>
+  <%= render 'pollution_events/event_form' %>
+
+  <div id='map'></div>
+</div>
 <script>
-drawMap();
+  addMarkerLayer();
 </script>
