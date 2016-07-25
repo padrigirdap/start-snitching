@@ -5,7 +5,7 @@ feature "users can add shop" do
 
   scenario "user adds new shop successfully" do
     sign_in
-    click_link "Add Pollution Event"
+    click_link "Add Event"
     expect(page).to have_content "Add Event"
 
     fill_in "Title", with: "Huge Oil Spill"

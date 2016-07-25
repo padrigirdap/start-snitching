@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :pollution_events do
     resources :comments, only: [:new, :create, :update, :edit, :destroy]
   end
+
+  namespace :api do
+    resources :pollution_events, only: [:index]
+  end
 end
