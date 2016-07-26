@@ -1,5 +1,6 @@
 class PollutionEventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  helper_method :resource
 
   def index
     @pollution_events = PollutionEvent.all

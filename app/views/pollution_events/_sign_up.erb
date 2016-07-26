@@ -1,0 +1,39 @@
+
+<%= form_for(@user, registration_path()) do |f| %>
+  <div class="row">
+    <div class="small-12 medium-6 columns errors">
+        <%= devise_error_messages! %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-3 columns">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-3 columns">
+      <%= f.label :password %> <span class="pass-length">(<%= @minimum_password_length %> characters minimum)</span>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="small-12 medium-3 columns end">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.submit "Sign Up", class: "button" %>
+    </div>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 <div class="top-bar">
   <div class="top-bar-left">
-    <h3 class="site-logo"style="color:white;"><%= link_to "Breakable Toy", root_path %></h3>
+    <h3 class="site-logo"style="color:white;"><%= link_to "Pollute This Page", root_path %></h3>
   </div>
   <div class="top-bar-right">
     <ul class="dropdown menu" data-dropdown-menu>
@@ -12,8 +12,46 @@
         <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>
       </ul>
       <% else %>
-      <li><%= link_to "Sign In", new_user_session_path %></li>
-      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <li>
+        <a href="#" class="sign-in-button" data-dropdown="drop">Sign In</a>
+          <ul id="drop" class="dropdown-menu" data-dropdown-content>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <li>
+              <div class="small">
+                <div id="sign-in">
+                 <%= f.label :username %>
+                 <%= f.text_field :username, autofocus: true %>
+               <%= f.label :password %>
+               <%= f.password_field :password, autocomplete: "off" %>
+             </div>
+             </div>
+             <%= f.submit "Sign In", class: "button quiet" %>
+            </li>
+            <% end %>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="sign-up-button" data-dropdown="drop">Sign Up</a>
+          <ul id="drop" data-dropdown-content>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <li>
+              <div class="small">
+                <div id="sign-up">
+                  <%= f.label :username %>
+                  <%= f.text_field :username, autofocus: true %>
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true %>
+                  <%= f.label :password %>
+                  <%= f.password_field :password, autocomplete: "off" %>
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
+            </div>
+            <%= f.submit "Sign Up", class: "button quiet" %>
+            </li>
+            <% end %>
+          </ul>
+        </li>
       <% end %>
     </li>
     </ul>

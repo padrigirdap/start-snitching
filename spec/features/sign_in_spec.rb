@@ -12,8 +12,10 @@ feature "users can sign in" do
   scenario "user provides invalid credentials and fails to sign in" do
     visit root_path
     click_link "Sign In"
-    fill_in "Username", with: "top"
-    click_button "Log in"
+    within(:css, "div#sign-in") do
+    fill_in 'Username', with: user.username
+    end
+    click_button "Sign In"
     expect(page).to have_content("Invalid Username or password.")
     expect(page).to have_content("Sign In")
   end
