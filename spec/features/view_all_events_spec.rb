@@ -18,10 +18,7 @@ feature "user deletes a pollution_event" do
     user2 = FactoryGirl.create(:user)
 
     visit root_path
-    click_link "Sign In"
-    fill_in "Username", with: user2.username
-    fill_in "Password", with: user2.password
-    click_button "Log in"
+    sign_in_two
 
     visit pollution_event_path(pollution_event)
     expect(page).not_to have_content "Edit Event"

@@ -14,7 +14,20 @@ end
 def sign_in
   visit root_path
   click_link "Sign In"
-  fill_in "Username", with: user.username
+  within(:css, "div#sign-in") do
+  fill_in 'Username', with: user.username
   fill_in "Password", with: user.password
-  click_button "Log in"
+  end
+  click_button "Sign In"
+end
+
+def sign_in_two
+  user2 = FactoryGirl.create(:user)
+  visit root_path
+  click_link "Sign In"
+  within(:css, "div#sign-in") do
+  fill_in 'Username', with: user2.username
+  fill_in "Password", with: user2.password
+  end
+  click_button "Sign In"
 end
