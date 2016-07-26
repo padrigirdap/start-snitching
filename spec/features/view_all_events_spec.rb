@@ -7,7 +7,6 @@ feature "user deletes a pollution_event" do
   scenario "User deletes a pollution vent from the pollution event edit page" do
     visit root_path
 
-    expect(page).to have_content "Add Pollution Event"
     expect(page).to have_content "Sign Up"
     expect(page).to have_content "Sign In"
 

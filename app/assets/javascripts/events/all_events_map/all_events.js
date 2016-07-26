@@ -1,5 +1,7 @@
 $(function(){
+  if(document.getElementById('canvas-form') != null) {
   document.getElementById('canvas-form').onclick = addFormLayer;
+}
 });
 var clicked = false;
 var $searchBox;
@@ -31,21 +33,15 @@ function addMarkerLayer(){
   .done(function(data){
     data.events.forEach(function(pevent){
       L.marker(new L.LatLng(pevent.event_lat, pevent.event_lng))
-      .bindPopup(`<a href="/pollution_events/${pevent.id}">${pevent.title}</a>
-                  <p>
-                    ${pevent.address}
-                  </p>
-                  `)
+      .bindPopup("<a href=/pollution_events/" + pevent.id + ">" + pevent.title + "</a> <p>"
+                    + pevent.address +
+                  "</p>"
+                  )
       .openPopup()
       .addTo(map);
     });
   });
 }
-
-// var formBtn = document.getElementById('canvas-form');
-// formBtn.addeventListener('click', function(event){
-//
-// });
 
 function ondragend() {
   var m = marker.getLatLng();
@@ -76,6 +72,15 @@ function populateAddress(err, data) {
   $eventAddress.val(data.features[0]["place_name"]);
 }
 
+function ajaxFormLayer(){
+  $.ajax({
+    url: '/pollution_events',
+    method: 'POST'
+  })
+  .done(function(data){
+
+  });
+}
 
 function addFormLayer(){
     marker = L.marker(new L.LatLng(29.525294, -60.562068), {
@@ -128,4 +133,3 @@ function addFormLayer(){
     map.removeLayer(marker);
   })
 }
-// document.getElementById('close-button').onclick = map.removeLayer(marker);
