@@ -24,7 +24,7 @@ feature "users can add shop" do
 
   scenario "user does not provide proper information for a shop" do
     sign_in
-    click_link "Add Pollution Event"
+    click_link "Add Event"
 
     click_button "Create Event"
     expect(page).to have_content "Title can't be blank"

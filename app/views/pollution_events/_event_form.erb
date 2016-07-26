@@ -1,7 +1,9 @@
 <div class="form-canvas-trigger">
+  <% if user_signed_in? %>
   <a href='#step-3' id='canvas-form' class='icon paint button quiet float-right'>
     Add Event
   </a>
+  <% end %>
   <div id='step-3' class='row15 col5 pad2 fill-darken3 pin-left offcanvas-left animate'>
     <%= form_for(@pollution_event) do |f| %>
     <a href='#' id="close-button" class='fill-darken0 pad1 icon close'></a>
