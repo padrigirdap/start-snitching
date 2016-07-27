@@ -1,0 +1,23 @@
+<% @pollution_events.each do |event| %>
+<div class="show-canvas-trigger">
+  <div id="step-<%= event.id %>" class='row13 col6 pad2 fill-darken2 pin-left offcanvas-left animate'>
+    <a href='#' class='fill-darken0 pad1 icon close'></a>
+    <div class="pad1y pad2x keyline-bottom">
+      <h3 class='fancy'><%= event.title %></h3>
+      <div class="note contain fill-navy-dark">
+      <h6><%= link_to "Link to Article", event.url %></h6>
+      <h8>Latitude: <%= event.event_lat %></h8>
+      <br>
+      <h8>Longitude: <%= event.event_lng %></h8>
+      <br>
+      <% if !event.address.nil? %>
+      <h8>Address:  <%= event.address %></h8>
+      <% end %>
+    </div>
+        <div class="note contain fill-navy">
+          <%= event.description %>
+        </div>
+    </div>
+  </div>
+</div>
+<% end %>

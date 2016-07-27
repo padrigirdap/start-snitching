@@ -3,18 +3,19 @@
     <a href='#step-4' id='canvas-list' class='icon paint button quiet float-right'>
       Recent Events
     </a>
-    <div id='step-4' class='row16 col3 pad2 fill-darken3 pin-left offcanvas-left animate'>
+    <div id='step-4' class='list row16 col3 pad2 fill-darken3 pin-left offcanvas-left animate'>
       <a href='#' class='fill-darken0 pad1 icon close'></a>
       <% @pollution_events.each do |event| %>
-      <div class="pad1y pad2x keyline-bottom">
-        <%= link_to "#{event.title}", pollution_event_path(event.id) %>
+      <div class="list pad1y pad2x keyline-bottom">
+        <a href="#step-<%=event.id%>" id="canvas-show" class=""><%= event.title  %></a>
       </div>
       <% end %>
     </div>
   </div>
   <%= render 'pollution_events/event_form' %>
+  <%= render 'pollution_events/show_page' %>
 
-  <div id='map'></div>
+  <div class='custom-popup' id='map'></div>
 </div>
 <script>
   addMarkerLayer();
