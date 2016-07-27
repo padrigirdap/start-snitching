@@ -37,6 +37,31 @@ a:link, a:visited, a:hover, a:active {
   color: white;
 }
 
+// LIST
+.list-canvas-trigger {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.list.row16 {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.list.row16::-webkit-scrollbar {
+  width:3px;
+  height:3px;
+  border-left:0;
+  background:rgba(0,0,0,0.1);
+}
+.list.row16::-webkit-scrollbar-track {
+  background:none;
+}
+.list.row16::-webkit-scrollbar-thumb {
+  background:#FEFEFE;
+  border-radius:0;
+}
+
 #map {
   position: absolute;
   top: 0px;
@@ -47,12 +72,36 @@ a:link, a:visited, a:hover, a:active {
   z-index: 1;
 }
 
-.list-canvas-trigger {
+
+.show-canvas-trigger {
   position: relative;
   z-index: 2;
   height: 100%;
 }
 
+.custom-popup .leaflet-popup-content-wrapper {
+  background:#0A0D0F;
+  color:#fff;
+  font-size:16px;
+  line-height:24px;
+  opacity: .8;
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+  color:rgba(255,255,255,0.5);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  }
+.custom-popup .leaflet-popup-tip {
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid #2c3e50;
+  }
+
+.note.contain {
+  opacity: .8;
+}
 // NEW FORM
 
 #step-3 {

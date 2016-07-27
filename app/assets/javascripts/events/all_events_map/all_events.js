@@ -33,9 +33,8 @@ function addMarkerLayer(){
   .done(function(data){
     data.events.forEach(function(pevent){
       L.marker(new L.LatLng(pevent.event_lat, pevent.event_lng))
-      .bindPopup("<a href=/pollution_events/" + pevent.id + ">" + pevent.title + "</a> <p>"
-                    + pevent.address +
-                  "</p>"
+      .bindPopup( "<p>"+ pevent.title +
+                  "</p>" + "<a href=#step-" + pevent.id + " id=canvas-show class='button quiet'>" + "view event" + "</a>"
                   )
       .openPopup()
       .addTo(map);
