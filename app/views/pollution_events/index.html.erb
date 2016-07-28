@@ -3,11 +3,11 @@
     <a href='#step-4' id='canvas-list' class='icon paint button quiet float-right'>
       Recent Events
     </a>
-    <div id='step-4' class='list row16 col3 pad2 fill-darken3 pin-left offcanvas-left animate'>
+    <div id='step-4' class='list row10 col3 pad2 fill-darken3 pin-left offcanvas-left animate'>
       <a href='#' class='fill-darken0 pad1 icon close'></a>
       <% @pollution_events.each do |event| %>
       <div class="list pad1y pad2x keyline-bottom">
-        <a href="#step-<%=event.id%>" id="canvas-show" class=""><%= event.title  %></a>
+        <a href="#show-<%=event.id%>" id="canvas-show" class=""><%= event.title  %></a>
       </div>
       <% end %>
     </div>

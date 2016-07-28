@@ -16,7 +16,7 @@ class PollutionEventsController < ApplicationController
     @pollution_event.user = current_user
     if @pollution_event.save
       flash[:notice] = "Event created successfully"
-      redirect_to pollution_event_path(@pollution_event)
+      redirect_to root_path
     else
       flash.now[:error] = @pollution_event.errors.full_messages.join(", ")
       render :new

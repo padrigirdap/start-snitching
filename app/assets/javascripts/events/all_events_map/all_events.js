@@ -1,5 +1,5 @@
 $(function(){
-  if(document.getElementById('canvas-form') != null) {
+  if(document.getElementById('canvas-form') !== null) {
   document.getElementById('canvas-form').onclick = addFormLayer;
 }
 });
@@ -22,7 +22,7 @@ function drawBaseMap() {
     [42.369451896762385, -71.04429244995117],
   ]);
   map.setView([29.525294, -60.562068], 4);
-};
+}
 
 function addMarkerLayer(){
   drawBaseMap();
@@ -34,7 +34,7 @@ function addMarkerLayer(){
     data.events.forEach(function(pevent){
       L.marker(new L.LatLng(pevent.event_lat, pevent.event_lng))
       .bindPopup( "<p>"+ pevent.title +
-                  "</p>" + "<a href=#step-" + pevent.id + " id=canvas-show class='button quiet'>" + "view event" + "</a>"
+                  "</p>" + "<a href=#show-" + pevent.id + " id=canvas-show class='button quiet'>" + "view event" + "</a>"
                   )
       .openPopup()
       .addTo(map);
@@ -128,7 +128,22 @@ function addFormLayer(){
   ondragend();
   geocodeAddress();
   $("#close-button").click(function() {
-    clicked = false
+    clicked = false;
     map.removeLayer(marker);
-  })
+  });
 }
+
+function flyToMarker(){
+  $.ajax({
+    url: '/api/pollution_events',
+    method: 'GET'
+  })
+  .done(function(data){
+    data.events.forEach(function(listedevent){
+      document.getElementById("location-fly-" + listedevent.id).addEventListener("click", function () {
+        L.mapbox.accessToken = "pk.eyJ1IjoibGl6dmRrIiwiYSI6IlJodmpRdzQifQ.bUxjjqfXrx41XRFS7cXnIA";
+        map.panTo(new L.LatLng(listedevent.event_lat, listedevent.event_lng));
+        });
+      });
+    });
+  }
