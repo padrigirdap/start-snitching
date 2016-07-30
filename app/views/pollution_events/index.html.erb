@@ -1,6 +1,6 @@
 <div class='map-holder'>
   <div class="list-canvas-trigger">
-    <a href='#step-4' id='canvas-list' class='icon paint button quiet float-right'>
+    <a href='#step-4' id='canvas-list' class='button float-right'>
       Recent Events
     </a>
     <div id='step-4' class='list row10 col3 pad2 fill-darken3 pin-left offcanvas-left animate'>
@@ -14,9 +14,12 @@
   </div>
   <%= render 'pollution_events/event_form' %>
   <%= render 'pollution_events/show_page' %>
-
+  <%= render 'pollution_events/edit_event_form' %>
   <div class='custom-popup' id='map'></div>
 </div>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 <script>
   addMarkerLayer();
 </script>

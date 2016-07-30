@@ -1,42 +1,27 @@
-<%= form_for(@pollution_event) do |f| %>
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :title, 'Title' %>
-      <%= f.text_field :title %>
-    </div>
+<div class="reveal" id="exampleModal1" data-reveal>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+      <%= f.submit "Update", class: "button update fill-lighten0" %>
+  <% end %>
+  <div class="unhappy">
+    Unhappy?
   </div>
-
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :address, 'Address' %>
-      <%= f.text_field :address %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :description, 'Description' %>
-      <%= f.text_area :description %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :event_lat, 'Latitude' %>
-      <%= f.text_field :event_lat %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 medium-6 columns">
-      <%= f.label :event_lng, 'Longitude' %>
-      <%= f.text_field :event_lng %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-12 columns">
-      <%= f.submit "Update Event" %>
-    </div>
-  </div>
-<%end%>
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button fill-lighten0" %>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
