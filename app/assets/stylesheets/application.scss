@@ -1,5 +1,8 @@
 // @import "*";
 @import "foundation_and_overrides";
+
+// Load Screen
+
 // TOP BAR
 
 
@@ -13,6 +16,8 @@
 }
 
 .site-logo {
+  font-family: Helvetica, Arial, serif;
+  font-weight: 400;
   color: white;
   line-height: 80px;
 }
@@ -37,6 +42,79 @@ a:link, a:visited, a:hover, a:active {
   color: white;
 }
 
+.unhappy {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.button.update.fill-lighten0 {
+  margin-bottom: 0;
+  background-color: #223b53;
+}
+
+.button.update.fill-lighten0:hover,
+.button.update.fill-lighten0:focus {
+    background-color: #50667f;
+}
+
+.button.fill-lighten0 {
+  margin-bottom: 0;
+  background-color: #223b53;
+}
+
+.button.fill-lighten0:hover,
+.button.fill-lighten0:focus {
+    background-color: #50667f;
+}
+
+.button.float-right {
+  background-color: #0A0D0F;
+  opacity: .8;
+  top: 24px;
+  margin: 0px;
+  width: 120px;
+  right: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#user_current_password {
+  margin-bottom: 1rem;
+}
+
+.button.add.float-right {
+  background-color: #0A0D0F;
+  opacity: .8;
+  left: 90px;
+  top: 70px;
+  margin: 0px;
+  width: 120px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#trigger-1 {
+  z-index: 2;
+  top: 100px;
+}
+
+.reveal {
+  background-color: #0A0D0F;
+  opacity: .8;
+}
+
+#pollution_event_title {
+  opacity: 1;
+}
+
+#pollution_event_description {
+  opacity: 1;
+  background-color: #FEFEFE;
+}
+
+.button.fill-lighten0 {
+  background-color: 6F6F6F;
+}
 // LIST
 .list-canvas-trigger {
   position: relative;
@@ -82,13 +160,12 @@ a:link, a:visited, a:hover, a:active {
 .custom-popup .leaflet-popup-content-wrapper {
   background:#0A0D0F;
   color:#fff;
+  font-family: 'Metrophobic', Arial, serif;
   font-size:16px;
   line-height:24px;
   opacity: .8;
   }
-.custom-popup .leaflet-popup-content-wrapper a {
-  color:rgba(255,255,255,0.5);
-  }
+
 .custom-popup .leaflet-popup-tip-container {
   width:30px;
   height:15px;
@@ -99,9 +176,23 @@ a:link, a:visited, a:hover, a:active {
   border-top:15px solid #2c3e50;
   }
 
+a#canvas-show.button.quiet {
+  padding-left: 10px;
+  text-align: center;
+  opacity: 1;
+}
+
+
+p.pop-description {
+  font-family: 'Metrophobic', Arial, serif;
+  text-align: center;
+  color: #FEFEFE;
+}
+
 .note.contain {
   opacity: .8;
 }
+
 // NEW FORM
 
 #step-3 {
@@ -112,6 +203,12 @@ a:link, a:visited, a:hover, a:active {
   position: relative;
   z-index: 2;
   height: 100%;
+}
+
+.button.secondary.form {
+  background-color: #0A0D0F;
+  border: 1px;
+  border-color: #FEFEFE;
 }
 
 #new-map {

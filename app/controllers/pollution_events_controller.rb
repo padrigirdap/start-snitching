@@ -3,7 +3,7 @@ class PollutionEventsController < ApplicationController
   helper_method :resource
 
   def index
-    @pollution_events = PollutionEvent.all
+    @pollution_events = PollutionEvent.order(id: :desc)
     @pollution_event = PollutionEvent.new
   end
 

@@ -7,7 +7,6 @@ feature "user updates account information" do
     sign_in
 
     click_link "Edit Profile"
-    expect(page).to have_content("Edit User")
     fill_in "Email", with: "test3@gmail.com"
     fill_in "Current password", with: "password"
     click_button "Update"
@@ -17,7 +16,6 @@ feature "user updates account information" do
     sign_in
 
     click_link "Edit Profile"
-    expect(page).to have_content("Edit User")
     fill_in "Email", with: "user.email"
     fill_in "Password", with: "password123"
     fill_in "Password confirmation", with: "password123"
@@ -29,7 +27,6 @@ feature "user updates account information" do
     sign_in
 
     click_link "Edit Profile"
-    expect(page).to have_content("Edit User")
     fill_in "Email", with: "user.email"
     fill_in "Password", with: "password123"
     fill_in "Password confirmation", with: "password1"

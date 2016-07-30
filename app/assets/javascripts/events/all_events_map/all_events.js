@@ -3,6 +3,7 @@ $(function(){
   document.getElementById('canvas-form').onclick = addFormLayer;
 }
 });
+
 var clicked = false;
 var $searchBox;
 var $eventAddress;
@@ -15,7 +16,7 @@ var marker;
 var map;
 function drawBaseMap() {
   L.mapbox.accessToken = "pk.eyJ1IjoibGl6dmRrIiwiYSI6IlJodmpRdzQifQ.bUxjjqfXrx41XRFS7cXnIA";
-  map = L.mapbox.map('map', 'mapbox.streets-satellite', { zoomControl: false });
+  map = L.mapbox.map('map', 'mapbox.satellite', { zoomControl: false });
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
   map.fitBounds([
     [42.346397049733944, -71.1029577255249],
@@ -32,15 +33,14 @@ function addMarkerLayer(){
   })
   .done(function(data){
     data.events.forEach(function(pevent){
-      L.marker(new L.LatLng(pevent.event_lat, pevent.event_lng))
-      .bindPopup( "<p>"+ pevent.title +
-                  "</p>" + "<a href=#show-" + pevent.id + " id=canvas-show class='button quiet'>" + "view event" + "</a>"
-                  )
-      .openPopup()
+      var latlng = L.latLng(pevent.event_lat, pevent.event_lng);
+      L.circleMarker(latlng, {radius: 6, color: '#9F0A28', fillOpacity: .7, weight: 5})
+      .bindPopup("<a href=#show-" + pevent.id + " id=canvas-show class='button quiet'>" + pevent.title  + "</a>" + "<p class='pop-description'>" + pevent.address  + "<br>" + pevent.description + "<p>")
       .addTo(map);
     });
   });
 }
+
 
 function ondragend() {
   var m = marker.getLatLng();
@@ -71,19 +71,9 @@ function populateAddress(err, data) {
   $eventAddress.val(data.features[0]["place_name"]);
 }
 
-function ajaxFormLayer(){
-  $.ajax({
-    url: '/pollution_events',
-    method: 'POST'
-  })
-  .done(function(data){
-
-  });
-}
-
 function addFormLayer(){
     marker = L.marker(new L.LatLng(29.525294, -60.562068), {
-    icon: L.mapbox.marker.icon({'marker-color': '4f8b89', 'marker-size' : 'large' }),
+    icon: L.mapbox.marker.icon({'marker-color': '#11644D', 'marker-size' : 'large' }),
     draggable: true
   });
   geocoder = L.mapbox.geocoder('mapbox.places');
@@ -98,7 +88,7 @@ function addFormLayer(){
     [42.346397049733966, -71.1029577255249],
     [42.369451896762385, -71.04429244995117]
     ]);
-    map.setView([29.525294, -60.562068], 4);
+    map.setView([29.525294, -60.562068], 3);
 
   if (!navigator.geolocation) {
     $geolocate.val('Geolocation is not available');
@@ -131,6 +121,10 @@ function addFormLayer(){
     clicked = false;
     map.removeLayer(marker);
   });
+  $("#canvas-list").click(function() {
+    clicked = false;
+    map.removeLayer(marker);
+  });
 }
 
 function flyToMarker(){
@@ -142,7 +136,7 @@ function flyToMarker(){
     data.events.forEach(function(listedevent){
       document.getElementById("location-fly-" + listedevent.id).addEventListener("click", function () {
         L.mapbox.accessToken = "pk.eyJ1IjoibGl6dmRrIiwiYSI6IlJodmpRdzQifQ.bUxjjqfXrx41XRFS7cXnIA";
-        map.panTo(new L.LatLng(listedevent.event_lat, listedevent.event_lng));
+        map.panTo(new L.LatLng(listedevent.event_lat, listedevent.event_lng), 9);
         });
       });
     });
