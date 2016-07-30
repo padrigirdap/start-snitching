@@ -6,7 +6,7 @@
 
     <div class="small-12 medium-2 columns text-right edit-event" data-equalizer-watch>
       <div class="edit-delete-button" data-equalizer-watch>
-        <% if user_signed_in? && (current_user.id == @pollution_event.user_id) %>
+        <% if current_user.id == @pollution_event.user_id %>
           <%= link_to "Edit Event", edit_pollution_event_path(@pollution_event), { class: "button edit-pollutio_event-button" } %>
         <% end %>
       </div>

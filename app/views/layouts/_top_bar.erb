@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
       <a href="#"><%= current_user.username %></a>
       <ul class="menu vertical">
-        <li><a data-open="exampleModal1">Edit Profile</a></li>
+        <li><a href="#" data-open="exampleModal1">Edit Profile</a></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>
       </ul>
       <% else %>
