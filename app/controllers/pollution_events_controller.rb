@@ -25,7 +25,6 @@ class PollutionEventsController < ApplicationController
 
   def show
     @pollution_event = PollutionEvent.find(params[:id])
-    @comments = @pollution_event.comments
   end
 
   def edit
