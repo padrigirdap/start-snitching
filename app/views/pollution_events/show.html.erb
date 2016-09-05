@@ -40,12 +40,6 @@
     <div class="small-12 medium-2 columns text-right">
       <%= link_to "Add Comment", new_pollution_event_comment_path(@pollution_event), { class: "button" } %>
     </div>
-    <% @comments.each_with_index do |comment, index| %>
-    <%= comment.user_id %>
-    <%= comment.body %>
-    <% date = comment.created_at.strftime("%m/%d/%Y") %>
-    <br>
-    <%= date %>
-    <% end %>
+
   </div>
 </div>
